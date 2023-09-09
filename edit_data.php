@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 $id = $_GET['id'];
-$sql = "SELECT * FROM kamar WHERE id=$id";
+$sql = "SELECT * FROM rooms WHERE id=$id";
 $result = mysqli_query($connection, $sql);
 $row = mysqli_fetch_assoc($result);
 ?>
@@ -24,8 +24,8 @@ $row = mysqli_fetch_assoc($result);
 <h2>Edit Kamar</h2>
 <form method="POST" action="">
     <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-    Nomor Kamar: <input type="text" name="nomor_kamar" value="<?php echo $row['nomor_kamar']; ?>"><br>
-    Tipe Kamar: <input type="text" name="tipe_kamar" value="<?php echo $row['tipe_kamar']; ?>"><br>
-    Harga: <input type="text" name="harga" value="<?php echo $row['harga']; ?>"><br>
+    Nomor Kamar: <input type="text" name="nomor_kamar" value="<?php echo $row['room_number']; ?>"><br>
+    Tipe Kamar: <input type="text" name="tipe_kamar" value="<?php echo $row['type']; ?>"><br>
+    Harga: <input type="text" name="harga" value="<?php echo $row['price']; ?>"><br>
     <input type="submit" value="Simpan Perubahan">
 </form>
