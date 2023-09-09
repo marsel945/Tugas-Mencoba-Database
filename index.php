@@ -11,7 +11,7 @@ $result = mysqli_query($connection, $sql);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Home</title>
 
     <style>
         body {
@@ -25,6 +25,19 @@ $result = mysqli_query($connection, $sql);
             text-align: center;
             margin-top: 20px;
             color: #333;
+        }
+
+        .add-button {
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-left: 20px;
         }
 
         table {
@@ -61,10 +74,14 @@ $result = mysqli_query($connection, $sql);
         }
 
 
-        .action-button {
+        .add-button:hover {
+            background-color: #218838;
+        }
+
+        .delete-button {
             display: inline-block;
             padding: 5px 10px;
-            background-color: #007BFF;
+            background-color: #dc3545;
             color: white;
             text-decoration: none;
             border: none;
@@ -73,8 +90,8 @@ $result = mysqli_query($connection, $sql);
             transition: background-color 0.3s;
         }
 
-        .action-button:hover {
-            background-color: #0056b3;
+        .delete-button:hover {
+            background-color: #c82333;
         }
     </style>
 
@@ -84,6 +101,8 @@ $result = mysqli_query($connection, $sql);
 
 
     <h2>Daftar Kamar</h2>
+
+    <a href="add_data.php" class="add-button">Tambah Data</a>
     <table border="1">
         <tr>
             <th>Nomor Kamar</th>
@@ -97,8 +116,8 @@ $result = mysqli_query($connection, $sql);
             echo "<td>" . $row['room_number'] . "</td>";
             echo "<td>" . $row['type'] . "</td>";
             echo "<td>" . $row['price'] . "</td>";
-            echo "<td><a href='edit_data.php?id=" . $row['id'] . "' class='action-button'>Edit</a> | <a href='hapus_data.php?id=" . $row['id'] . "' class='action-button'>Hapus</a></td>";
 
+            echo "<td><a href='edit_data.php?id=" . $row['id'] . "' class='action-button'>Edit</a> | <a href='hapus_data.php?id=" . $row['id'] . "' class='delete-button' onclick=\"return confirm('Apakah Anda yakin ingin menghapus data ini?');\">Hapus</a></td>";
             echo "</tr>";
         }
         ?>
