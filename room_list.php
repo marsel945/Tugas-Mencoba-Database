@@ -16,10 +16,10 @@ $result = mysqli_query($connection, $sql);
     <?php
     while ($row = mysqli_fetch_assoc($result)) {
         echo "<tr>";
-        echo "<td>" . $row['nomor_kamar'] . "</td>";
-        echo "<td>" . $row['tipe_kamar'] . "</td>";
-        echo "<td>" . $row['harga'] . "</td>";
-        echo "<td><a href='edit_kamar.php?id=" . $row['id'] . "'>Edit</a> | <a href='hapus_kamar.php?id=" . $row['id'] . "'>Hapus</a></td>";
+        echo "<td>" . $row['room_number'] . "</td>";
+        echo "<td>" . $row['type'] . "</td>";
+        echo "<td>" . $row['price'] . "</td>";
+        echo "<td><a href='edit_data.php?id=" . $row['id'] . "'>Edit</a> | <a href='hapus_data.php?id=" . $row['id'] . "'>Hapus</a></td>";
         echo "</tr>";
     }
     ?>
